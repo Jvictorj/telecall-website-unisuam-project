@@ -1,13 +1,6 @@
-Ficou **muito bom**, mas posso deixá-lo ainda **mais organizado, bonito e profissional**, com melhor hierarquia visual, emojis alinhados, títulos padronizados e link funcionando.
-Aqui está a **versão aprimorada** do seu README, já formatada e pronta para colar no GitHub:
-
----
-
 # 📘 Projeto Final — Módulo I (Front-End)
 
 ### Curso de Análise e Desenvolvimento de Sistemas
-
-### Centro Universitário Augusto Motta (UNISUAM)
 
 Este repositório contém o projeto final do **Módulo I – Front-End**, cujo objetivo é desenvolver um site institucional para a **Telecall**, empresa do setor de telefonia e telecomunicações.
 O projeto demonstra domínio dos fundamentos de **HTML, CSS e JavaScript**, incluindo a implementação de **recursos de acessibilidade**.
