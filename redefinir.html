@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Redefinir Senha - Telecall. Recupere o acesso à sua conta de forma segura.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - Redefinir Senha</title>
+    
+    <link rel="stylesheet" href="./css/redefinir.css">
+    <link rel="shortcut icon" href="IMG/Icons/favicon.ico" type="image/x-icon">
+    
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+</head>
+
+<body>
+    <header class="menu-bg" role="banner">
+        <div class="menu">
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
+            </div>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    <li><a href="login.html" class="menu__nav-link">Login</a></li>
+                    
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
+
+                    <div class="theme-toggle" id="dark">
+                        <button class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Home</a></li>
+                <li class="mobile-menu__item"><a href="login.html" class="mobile-menu__link">Login</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="reset__container">
+            <section class="reset__content" aria-labelledby="reset-titulo">
+                
+                <div class="reset__header">
+                    <img class="reset__logo" src="IMG/Icons/telecall_icone_p.png" alt="Ícone Telecall">
+                    <h1 id="reset-titulo" class="reset__title">Esqueceu a senha?</h1>
+                    <p class="reset__text">Digite seu CPF ou Email cadastrado para redefinir sua senha.</p>
+                </div>
+
+                <form id="resetForm" class="reset__form" action="#" method="POST">
+                    <div class="reset__form-group">
+                        <label for="recovery-input" class="reset__label">CPF ou Email:</label>
+                        <input 
+                            type="text" 
+                            id="recovery-input" 
+                            name="recovery" 
+                            class="reset__input" 
+                            placeholder="Digite aqui..." 
+                            required
+                            aria-required="true">
+                    </div>
+
+                    <div class="reset__actions">
+                        <button type="submit" class="reset__submit-btn">Enviar</button>
+                        <a href="login.html" class="reset__cancel-link">Voltar para Login</a>
+                    </div>
+                </form>
+
+            </section>
+        </div>
+
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑</a>
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
+</body>
+</html>

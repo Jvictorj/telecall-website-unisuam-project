@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acesse sua conta Telecall - Plataforma CPaaS de comunicações.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - Login | Área do Cliente</title>
+    
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="shortcut icon" href="IMG/telecall_icone_p" type="image/x-icon">
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+</head>
+
+<body>
+    <header class="menu-bg" role="banner">
+        <div class="menu">
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
+            </div>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
+
+                    <div class="theme-toggle" id="dark">
+                        <button id="dark-toggle" class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Home</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <div class="login-container">
+            <section class="login-welcome" aria-labelledby="bem-vindo-titulo">
+                <div class="login-welcome__content">
+                    <a href="index.html" aria-label="Telecall Home">
+                        <img class="login-welcome__logo" src="./IMG/Icons/telecall_icone_p.png" alt="Ícone Telecall">
+                    </a>
+                    
+                    <h1 id="bem-vindo-titulo" class="login-welcome__title">Bem-vindo(a)!</h1>
+                    <p class="login-welcome__text">Continue conosco fazendo login em sua conta.</p>
+                    
+                    <div class="login-welcome__divider">
+                        <span>ou</span>
+                    </div>
+                    
+                    <a class="login-welcome__signup-btn" href="cadastro.html">Cadastre-se</a>
+                </div>
+            </section>
+
+            <section class="login-form__wrapper" aria-labelledby="login-titulo">
+                <div class="login-form-container">
+                    <h2 id="login-titulo" class="login-form__heading">Fazer Login</h2>
+                    
+                    <form id="loginForm" class="login-form" method="POST" novalidate>
+                        
+                        <div class="login-form__group">
+                            <label for="login" class="login-form__label">Login:</label>
+                            <input 
+                                class="login-form__input"
+                                type="text" 
+                                id="login" 
+                                name="login" 
+                                maxlength="6" 
+                                placeholder="Digite seu login" 
+                                required
+                                aria-required="true"
+                                aria-describedby="mensagemLogin">
+                            <div id="mensagemLogin" class="login-form__error" role="alert" aria-live="polite"></div>
+                        </div>
+
+                        <div class="login-form__group">
+                            <label for="senha" class="login-form__label">Senha:</label>
+                            <input 
+                                class="login-form__input"
+                                type="password" 
+                                id="senha" 
+                                name="senha" 
+                                maxlength="8" 
+                                placeholder="Digite sua senha" 
+                                required
+                                aria-required="true"
+                                aria-describedby="mensagemSenha">
+                            <div id="mensagemSenha" class="login-form__error" role="alert" aria-live="polite"></div>
+                        </div>
+
+                        <div class="login-form__checkbox">
+                            <input 
+                                class="login-form__checkbox-input"
+                                type="checkbox" 
+                                id="lembrar-senha" 
+                                name="lembrar-senha" 
+                                value="aceito">
+                            <label for="lembrar-senha" class="login-form__checkbox-label">Lembrar senha</label>
+                        </div>
+                        
+                        <div id="mensagemGeral" class="login-form__error--general" role="alert" aria-live="polite"></div>
+
+                        <div class="login-form__actions">
+                            <button type="submit" class="login-form__submit">Entrar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑ Voltar ao topo</a>
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
+    <script src="JavaScript/login.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+</body>
+</html>

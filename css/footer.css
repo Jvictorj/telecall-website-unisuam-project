@@ -1,0 +1,52 @@
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+  background: #000000;
+  padding: var(--spacing-xl) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footer__text {
+  flex: 1;
+  text-align: center;
+  color: var(--color-text-inverse);
+  min-width: 200px;
+}
+
+.footer__text p {
+  margin: 0;
+  color: var(--color-text-inverse);
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+
+.back-to-top {
+  text-decoration: none;
+  color: var(--color-text-inverse);
+  background-color: #000000;
+  padding: var(--spacing-sm);
+  position: fixed;
+  right: var(--spacing-md);
+  bottom: var(--spacing-md);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  z-index: 999;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+}
+
+.back-to-top:focus {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
