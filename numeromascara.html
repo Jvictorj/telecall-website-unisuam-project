@@ -5,196 +5,209 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecall - Número Máscara</title>
-    <link rel="stylesheet" href="css/numeromascara.css">
+    <meta name="description" content="Número Máscara - Telecall. Proteja identidades profissionais com mascaramento de números de telefone.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - Número Máscara | Mascaramento de Telefones</title>
+    
+    <link rel="stylesheet" href="./css/numeromascara.css">
     <link rel="shortcut icon" href="IMG/Icons/favicon.ico" type="image/x-icon">
-    <script src="JavaScript/numeromascara.js"></script>
-    <script src="JavaScript/fontsize.js"></script>
+    
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+    <link rel="preload" href="IMG/numero-mascara.png" as="image">
 </head>
 
 <body>
-    <header class="menu-bg">
+    <header class="menu-bg" role="banner">
         <div class="menu">
-            <div class="menu-logo">
-                <a href="Index2.html"><img class="logo-telecall"
-                        src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
             </div>
-            <nav class="menu-nav">
-                <div class="nav-list">
-                    <ul>
-                        <li><a href="Index2.html">Home</a></li>
-                        <li><a href="2fa.html">2FA</a></li>
-                        <li><a href="numeromascara.html">Número Máscara</a></li>
-                        <li><a href="google.html">Google Verified Calls</a></li>
-                        <li><a href="sms.html">SMS Programável</a></li>
-                        <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
-                        
-                        <div class="btn-size">
-                            <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                            <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                        </div>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    <li><a href="2fa.html" class="menu__nav-link">2FA</a></li>
+                    <li><a href="numeromascara.html" class="menu__nav-link" aria-current="page">Número Máscara</a></li>
+                    <li><a href="google.html" class="menu__nav-link">Google Verified Calls</a></li>
+                    <li><a href="sms.html" class="menu__nav-link">SMS Programável</a></li>
+                    
+                    <li class="menu__auth-btn">
+                        <img src="IMG/icons-2/icone-login.png" alt="">
+                        <a href="login.html">Área do cliente</a>
+                    </li>
+                    
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
 
-
-                        <div class="dark" id="dark">
-                            <button><img src="IMG/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro"
-                                    title="Modo Escuro" ></button>
-                        </div>
-                    </ul>
-                </div>
+                    <div class="theme-toggle" id="dark">
+                        <button id="dark-toggle" class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
             </nav>
-            <div class="mobile-menu-icon">
-                <button onclick="menuShow()"><img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg"
-                        alt="Menu de Navegação"></button>
+            
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
             </div>
         </div>
 
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="2fa.html">2FA</a></li>
-                <li><a href="numeromascara.html">Número Máscara</a></li>
-                <li><a href="google.html">Google Verified Calls</a></li>
-                <li><a href="sms.html">SMS Programável</a></li>
-                <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
-
-                <div class="btn-size">
-                    <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                    <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                </div>
-
-                <div class="dark">
-                    <button><img src="IMG/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro"
-                            title="Modo Escuro"id="dark2"></button>
-                </div>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="2fa.html" class="mobile-menu__link">2FA</a></li>
+                <li class="mobile-menu__item"><a href="numeromascara.html" class="mobile-menu__link" aria-current="page">Número Máscara</a></li>
+                <li class="mobile-menu__item"><a href="google.html" class="mobile-menu__link">Google Verified Calls</a></li>
+                <li class="mobile-menu__item"><a href="sms.html" class="mobile-menu__link">SMS Programável</a></li>
+                <li class="mobile-menu__item"><a href="login.html" class="mobile-menu__link">Área do cliente</a></li>
             </ul>
         </div>
     </header>
 
-    <section class="numero-mascara">
-        <h1 class="titulo-0">Número Máscara</h1>
-        <h2>Proteja identidades profissionais</h2>
-        <img class="numero-mascara-img" src="IMG/numero-mascara.png" alt="">
-        <p>Garanta aos seus clientes a capacidade de fazer chamadas e enviar mensagens sem expor seus números de
-            telefone pessoais.</p>
-        <ul>
-            <li><strong>Mascare</strong> um número de telefone para interações com mais privacidade.</li>
-            <li><strong>Permite</strong> que empresas façam negócios usando menos números de telefone.</li>
-            <li><strong>Oferece</strong> uma experiência mais segura e profissional.</li>
-        </ul>
-    </section>
-
-    <section class="como-funciona">
-        <h2 class="titulo">Como Funciona</h2>
-        <div class="como-funciona-1">
-            <p>Usuário faz uma chamada através de um aplicativo.</p>
-            <img src="IMG/icons-2/Businessman-pana.png" alt="">
-            <p>Ex: usuário liga para o entregador ou motorista de taxi ou entra em contato com a central de atendimento.
-            </p>
-        </div>
-
-        <div class="como-funciona-2">
-            <p>Plataforma mascara o número original.</p>
-            <img src="IMG/icons-2/Cloud hosting-rafiki.png" alt="">
-            <p>A plataforma recebe a chamada e mascara o número antes de conectar com o destinatário.</p>
-        </div>
-
-        <div class="como-funciona-1">
-            <p>Ambas as partes são conectadas.</p><br>
-            <img src="IMG/icons-2/Get in touch-bro.png" alt="">
-            <p>A plataforma conecta ambas as partes mantendo a privacidade dos dois.</p>
-        </div>
-    </section>
-
-    <section class="quem-usa2">
-        <div class="quem-usa2-h2">
-            <h2 class="titulo02">Quem Usa ?</h2>
-        </div>
-        <div class="quem-usa">
-            <div class="lista-quem-usa">
-                <div><img src="IMG/icon-serviços/taxi.png" alt=""></div>
-                <h3>Apps de Transporte</h3>
-                <p>Permite que motorista e passageiro se comuniquem sem compartilhar seus números pessoais.</p>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/apptransporte/uber.PNG" alt="Uber">
-                    <img src="IMG/Quem usa/apptransporte/99.PNG" alt="99">
-                </span>
+    <main id="main-content">
+        <section class="numero-mascara__intro" aria-labelledby="nm-titulo">
+            <h1 id="nm-titulo" class="numero-mascara__title">Número Máscara</h1>
+            
+            <div class="numero-mascara__content">
+                <h2 class="numero-mascara__heading">Proteja identidades profissionais</h2>
+                <p class="numero-mascara__text">Garanta aos seus clientes a capacidade de fazer chamadas e enviar mensagens sem expor seus números de telefone pessoais.</p>
+                
+                <ul class="numero-mascara__list">
+                    <li class="numero-mascara__list-item"><strong class="numero-mascara__list-strong">Mascare</strong> um número de telefone para interações com mais privacidade.</li>
+                    <li class="numero-mascara__list-item"><strong class="numero-mascara__list-strong">Permite</strong> que empresas façam negócios usando menos números de telefone.</li>
+                    <li class="numero-mascara__list-item"><strong class="numero-mascara__list-strong">Oferece</strong> uma experiência mais segura e profissional.</li>
+                </ul>
             </div>
-
-            <div class="lista-quem-usa">
-                <div><img src="IMG/icon-serviços/chat.png" alt=""></div>
-                <h3>Apps de Relacionamento</h3>
-                <p>Permite uma maneira privada e segura para usuários interagirem sem expor contatos pessoais.</p>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/apprelacionamento/happn.PNG" alt="Happn">
-                    <img src="IMG/Quem usa/apprelacionamento/tinder.PNG" alt="Tinder">
-                </span>
+            
+            <div class="numero-mascara__image">
+                <img class="numero-mascara__image-img" src="IMG/numero-mascara.png" alt="Ilustração de número máscara">
             </div>
+        </section>
 
-            <div class="lista-quem-usa">
-                <div><img src="IMG/icon-serviços/shopping-cart.png" alt=""></div>
-                <h3>E-Commerce</h3>
-                <p>Permite que clientes entrem em contato através do aplicativo. Podem também integrar chamadas
-                    internacionais.</p>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/appecormmerce/ebay.PNG" alt="Ebay">
-                </span>
+        <section class="numero-mascara__how" aria-labelledby="cf-titulo">
+            <h2 id="cf-titulo" class="numero-mascara__section-title">Como Funciona</h2>
+            
+            <div class="numero-mascara__steps">
+                <article class="numero-mascara__step">
+                    <p class="numero-mascara__step-text">Usuário faz uma chamada através de um aplicativo.</p>
+                    <img class="numero-mascara__step-image" src="IMG/icons-2/Businessman-pana.png" alt="">
+                    <p class="numero-mascara__step-desc">Ex: usuário liga para o entregador ou motorista de taxi ou entra em contato com a central de atendimento.</p>
+                </article>
+
+                <article class="numero-mascara__step">
+                    <p class="numero-mascara__step-text">Plataforma mascara o número original.</p>
+                    <img class="numero-mascara__step-image" src="IMG/icons-2/Cloud hosting-rafiki.png" alt="">
+                    <p class="numero-mascara__step-desc">A plataforma recebe a chamada e mascara o número antes de conectar com o destinatário.</p>
+                </article>
+
+                <article class="numero-mascara__step">
+                    <p class="numero-mascara__step-text">Ambas as partes são conectadas.</p>
+                    <img class="numero-mascara__step-image" src="IMG/icons-2/Get in touch-bro.png" alt="">
+                    <p class="numero-mascara__step-desc">A plataforma conecta ambas as partes mantendo a privacidade dos dois.</p>
+                </article>
             </div>
+        </section>
 
-            <div class="lista-quem-usa">
-                <div><img src="IMG/icon-serviços/express-delivery.png" alt=""></div>
-                <h3>Entregas & Logística</h3>
-                <p>Mantenha seu cliente informado sobre entregas e serviços, tire dúvidas, etc</p>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/appentrega/rappi.PNG" alt="Rappi">
-                    <img src="IMG/Quem usa/appentrega/ifood.PNG" alt="Ifood">
-                </span>
+        <section class="numero-mascara__use-cases" aria-labelledby="qu-titulo">
+            <h2 id="qu-titulo" class="numero-mascara__section-title">Quem Usa?</h2>
+            
+            <div class="numero-mascara__cards">
+                <article class="numero-mascara__card">
+                    <div class="numero-mascara__card-icon">
+                        <img src="IMG/icon-serviços/taxi.png" alt="Transporte">
+                    </div>
+                    <h3 class="numero-mascara__card-title">Apps de Transporte</h3>
+                    <p class="numero-mascara__card-text">Permite que motorista e passageiro se comuniquem sem compartilhar seus números pessoais.</p>
+                    <div class="numero-mascara__card-brands">
+                        <img src="IMG/Quem usa/apptransporte/uber.PNG" alt="Uber">
+                        <img src="IMG/Quem usa/apptransporte/99.PNG" alt="99">
+                    </div>
+                </article>
+
+                <article class="numero-mascara__card">
+                    <div class="numero-mascara__card-icon">
+                        <img src="IMG/icon-serviços/chat.png" alt="Relacionamento">
+                    </div>
+                    <h3 class="numero-mascara__card-title">Apps de Relacionamento</h3>
+                    <p class="numero-mascara__card-text">Permite uma maneira privada e segura para usuários interagirem sem expor contatos pessoais.</p>
+                    <div class="numero-mascara__card-brands">
+                        <img src="IMG/Quem usa/apprelacionamento/happn.PNG" alt="Happn">
+                        <img src="IMG/Quem usa/apprelacionamento/tinder.PNG" alt="Tinder">
+                    </div>
+                </article>
+
+                <article class="numero-mascara__card">
+                    <div class="numero-mascara__card-icon">
+                        <img src="IMG/icon-serviços/shopping-cart.png" alt="E-Commerce">
+                    </div>
+                    <h3 class="numero-mascara__card-title">E-Commerce</h3>
+                    <p class="numero-mascara__card-text">Permite que clientes entrem em contato através do aplicativo. Podem também integrar chamadas internacionais.</p>
+                    <div class="numero-mascara__card-brands">
+                        <img src="IMG/Quem usa/appecormmerce/ebay.PNG" alt="Ebay">
+                    </div>
+                </article>
+
+                <article class="numero-mascara__card">
+                    <div class="numero-mascara__card-icon">
+                        <img src="IMG/icon-serviços/express-delivery.png" alt="Entregas">
+                    </div>
+                    <h3 class="numero-mascara__card-title">Entregas & Logística</h3>
+                    <p class="numero-mascara__card-text">Mantenha seu cliente informado sobre entregas e serviços, tire dúvidas, etc.</p>
+                    <div class="numero-mascara__card-brands">
+                        <img src="IMG/Quem usa/appentrega/rappi.PNG" alt="Rappi">
+                        <img src="IMG/Quem usa/appentrega/ifood.PNG" alt="Ifood">
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="quem-pode-usar">
-        <h2 class="titulo03">Quem Mais Pode Usar ?</h2>
-        <div class="p1">
-            <p>43% das empresas brasileiras adotaram o Home
-                Office como padrão.</p>
-            <p>Mesmo após o fim da pandemia, estatísticas
-                indicam que o modelo de trabalho Home
-                Office deve crescer cerca de 30%.</p>
-        </div>
+        <section class="numero-mascara__target-audience" aria-labelledby="qmp-titulo">
+            <h2 id="qmp-titulo" class="numero-mascara__section-title">Quem Mais Pode Usar?</h2>
+            
+            <div class="numero-mascara__audience-content">
+                <div class="numero-mascara__audience-stat">
+                    <p>43% das empresas brasileiras adotaram o Home Office como padrão.</p>
+                    <p>Mesmo após o fim da pandemia, estatísticas indicam que o modelo de trabalho Home Office deve crescer cerca de 30%.</p>
+                </div>
 
-        <div class="p2">
-            <p>Funcionários que não possuem celular empresarial ou ramal virtual podem se beneficiar do uso de um número
-                máscara permanente do trabalho vinculado ao seu telefone celular, assim protegendo seus número pessoais.
-            </p>
-        </div>
-    </section>
-    <section class="recursos-avancados">
-        <h2 class="titulo04">Recursos Avançados</h2>
-        <ul>
-            <li><strong>SMS</strong> – Número máscara é totalmente funcional para chamadas de voz e SMS.</li>
-            <li><strong>Geo Match</strong> – Combine o código do país do número mascarado com o da chamada de origem
-                passando pro cliente a impressão de que vocês estão na mesma região. </li>
-            <li><strong>Gestão de Sessões</strong> – Habilite números máscara permanentes, bloqueie chamadas
-                indesejadas, validade de sessão e etc.</li>
-            <li><strong>Relatórios</strong> – Acesso direto do cliente à relatórios detalhados.</li>
-            <li><strong>Números Simultâneos</strong> - Use o mesmo número máscara em várias ligações simultâneas.
-            </li>
-            <li><strong>Triagem de Conteúdo</strong> – Recurso SMS onde você pode sinalizar conteúdos sensíveis para
-                proteger dados do cliente.</li>
-            <li><strong>Escalabilidade Ilimitada</strong> – Compre e adicione números conforme necessário.</li>
-        </ul>
-    </section>
-    <a id="link-topo" href="#">&#9650;</a>
-    <script src="JavaScript/Darkmode.js"></script>
+                <div class="numero-mascara__audience-text">
+                    <p>Funcionários que não possuem celular empresarial ou ramal virtual podem se beneficiar do uso de um número máscara permanente do trabalho vinculado ao seu telefone celular, assim protegendo seus números pessoais.</p>
+                </div>
+            </div>
+        </section>
 
+        <section class="numero-mascara__features" aria-labelledby="ra-titulo">
+            <h2 id="ra-titulo" class="numero-mascara__section-title">Recursos Avançados</h2>
+            
+            <ul class="numero-mascara__features-list">
+                <li class="numero-mascara__feature-item"><strong>SMS</strong> – Número máscara é totalmente funcional para chamadas de voz e SMS.</li>
+                <li class="numero-mascara__feature-item"><strong>Geo Match</strong> – Combine o código do país do número mascarado com o da chamada de origem.</li>
+                <li class="numero-mascara__feature-item"><strong>Gestão de Sessões</strong> – Habilite números máscara permanentes, bloqueie chamadas indesejadas, validade de sessão, etc.</li>
+                <li class="numero-mascara__feature-item"><strong>Relatórios</strong> – Acesso direto do cliente a relatórios detalhados.</li>
+                <li class="numero-mascara__feature-item"><strong>Números Simultâneos</strong> - Use o mesmo número máscara em várias ligações simultâneas.</li>
+                <li class="numero-mascara__feature-item"><strong>Triagem de Conteúdo</strong> – Recurso SMS onde você pode sinalizar conteúdos sensíveis para proteger dados do cliente.</li>
+                <li class="numero-mascara__feature-item"><strong>Escalabilidade Ilimitada</strong> – Compre e adicione números conforme necessário.</li>
+            </ul>
+        </section>
+
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑ Voltar ao topo</a>
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
 </body>
-
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2023 Telecall. Todos os direitos reservados.</p><br>
-            <P>Desenvolvido por: <strong>João Vitor Gomes e Paulo Alves<strong></strong> </P>
-        </div>
-    </div>
-</footer>
-
 </html>

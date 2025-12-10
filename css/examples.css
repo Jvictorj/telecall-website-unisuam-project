@@ -1,0 +1,133 @@
+/**
+ * Examples Section Styles (examples.css)
+ * Refactored to use a single responsive grid (Mobile First approach)
+ */
+
+@charset "UTF-8";
+
+@import url('./variables.css');
+
+/* ========================================
+   SECTION CONTAINER
+   ======================================== */
+
+.examples {
+  max-width: 1080px;
+  margin: 0 auto var(--spacing-5xl);
+  padding: 0 var(--spacing-md);
+}
+
+.examples__heading {
+  text-align: center;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-2xl);
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+.examples__heading::after {
+  content: "";
+  display: block;
+  width: 150px; /* Largura ajustada para ser proporcional */
+  height: 3px;
+  background-color: var(--color-border);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza perfeitamente */
+}
+
+/* ========================================
+   RESPONSIVE GRID
+   Magic Line: auto-fit + minmax cria colunas responsivas sem media queries
+   ======================================== */
+
+.examples__grid {
+  display: grid;
+  /* Cria colunas que têm no mínimo 260px e ocupam o espaço restante (1fr) */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+  justify-content: center;
+}
+
+/* ========================================
+   UNIFIED CARD STYLES
+   ======================================== */
+
+.example-card {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* Sizing */
+  height: 100%;
+  min-height: 320px; /* Altura mínima consistente */
+  padding: var(--spacing-lg);
+  
+  /* Visuals */
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.example-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Variants (Colors) */
+.example-card--primary {
+  background: var(--gradient-primary);
+  color: #fff;
+}
+
+.example-card--dark {
+  background: var(--gradient-dark);
+  color: #fff;
+}
+
+/* Dark Mode Override for Dark Cards */
+body.darkmode .example-card--dark {
+  background: var(--gradient-dark-transparent);
+}
+
+/* Card Content */
+.example-card__image {
+  max-width: 100%;
+  max-height: 160px;
+  width: auto;
+  margin-bottom: var(--spacing-md);
+  object-fit: contain;
+  /* Se for o primeiro elemento (ordem visual), margem em baixo */
+  order: 1; 
+}
+
+/* Ajuste para imagens que devem aparecer depois do texto (opcional, via HTML order) */
+/* Mas por padrão, vamos deixar imagem -> texto ou texto -> imagem via HTML */
+
+.example-card__text {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff; /* Texto sempre branco nos cards coloridos */
+  margin: 0;
+  order: 2;
+}
+
+/* ========================================
+   MEDIA QUERIES (Ajustes finos)
+   ======================================== */
+
+@media (max-width: 480px) {
+  .examples__heading {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .example-card {
+    min-height: 280px; /* Um pouco menor em telas muito pequenas */
+  }
+}

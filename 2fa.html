@@ -5,238 +5,235 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecall - 2FA</title>
-    <link rel="stylesheet" href="css/2fa.css">
-    <script src="JavaScript/2fa.js"></script>
-    <script src="JavaScript/fontsize.js"></script>
+    <meta name="description" content="2FA - Telecall. Autenticação de dois fatores com envio de código PIN via SMS, voz ou e-mail para máxima segurança.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - 2FA | Autenticação de Dois Fatores</title>
+    
+    <link rel="stylesheet" href="./css/2fa.css">
+    <link rel="shortcut icon" href="IMG/Icons/favicon.ico" type="image/x-icon">
+    
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+    <link rel="preload" href="IMG/icons-2/Two factor authentication-pana.png" as="image">
 </head>
 
 <body>
-    <header class="menu-bg">
+    <header class="menu-bg" role="banner">
         <div class="menu">
-            <div class="menu-logo">
-                <a href="Index2.html"><img class="logo-telecall"
-                        src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
             </div>
-            <nav class="menu-nav">
-                <div class="nav-list">
-                    <ul>
-                        <li><a href="Index2.html">Home</a></li>
-                        <li><a href="2fa.html">2FA</a></li>
-                        <li><a href="numeromascara.html">Número Máscara</a></li>
-                        <li><a href="google.html">Google Verified Calls</a></li>
-                        <li><a href="sms.html">SMS Programável</a></li>
-                        <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    <li><a href="2fa.html" class="menu__nav-link" aria-current="page">2FA</a></li>
+                    <li><a href="numeromascara.html" class="menu__nav-link">Número Máscara</a></li>
+                    <li><a href="google.html" class="menu__nav-link">Google Verified Calls</a></li>
+                    <li><a href="sms.html" class="menu__nav-link">SMS Programável</a></li>
+                    
+                    <li class="menu__auth-btn">
+                        <img src="IMG/icons-2/icone-login.png" alt="">
+                        <a href="login.html">Área do cliente</a>
+                    </li>
 
-                        <div class="btn-size">
-                            <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                            <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                        </div>
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
 
-
-                        <div class="dark" id="dark">
-                            <button><img src="IMG/icon-dark-mode.png" alt="Modo Escuro"
-                                    title="Modo Escuro" ></button>
-                        </div>
-                    </ul>
-                </div>
+                    <div class="theme-toggle" id="dark">
+                        <button id="dark-toggle" class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
             </nav>
-            <div class="mobile-menu-icon">
-                <button onclick="menuShow()"><img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg"
-                        alt="Menu de Navegação"></button>
+            
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
             </div>
         </div>
 
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="2fa.html">2FA</a></li>
-                <li><a href="numeromascara.html">Número Máscara</a></li>
-                <li><a href="google.html">Google Verified Calls</a></li>
-                <li><a href="sms.html">SMS Programável</a></li>
-                <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
-
-                <div class="btn-size">
-                    <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                    <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                </div>
-
-                <div class="dark">
-                    <button><img src="IMG/icon-dark-mode.png" alt="Modo Escuro"
-                            title="Modo Escuro" id="dark2"></button>
-                </div>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="2fa.html" class="mobile-menu__link" aria-current="page">2FA</a></li>
+                <li class="mobile-menu__item"><a href="numeromascara.html" class="mobile-menu__link">Número Máscara</a></li>
+                <li class="mobile-menu__item"><a href="google.html" class="mobile-menu__link">Google Verified Calls</a></li>
+                <li class="mobile-menu__item"><a href="sms.html" class="mobile-menu__link">SMS Programável</a></li>
+                <li class="mobile-menu__item"><a href="login.html" class="mobile-menu__link">Área do cliente</a></li>
             </ul>
         </div>
     </header>
-    <section class="info-2fa-bg">
-        <h2 class="titulo-0">2FA</h2>
-        <div class="info-2fa">
-            <h2 class="h2-azul">Two-Factor Authentication</h2>
-            <h2 class="h2-2">Autenticação de dois fatores</h2>
-            <p>O 2FA é um procedimento de segurança que garante que serão necessários 2 fatores únicos para liberação de
-                uma ação. O
-                primeiro fator é a senha que o usuário e o segundo pode ser
-                autenticado via token, via detecção de impressão digital,
-                reconhecimento facial, código enviado via sms, entre outros.</p>
-        </div>
-        <div class="info-2fa-img">
-            <img src="IMG/icons-2/Two factor authentication-pana.png" alt="">
-        </div>
 
-        <div class="funcao">
-            <h2>O 2FA permite que você:</h2>
-            <ul>
-                <li><strong>Envie</strong> uma senha via SMS, voz ou e-mail para autenticação do usuário.</li>
-                <li><strong>Adicione</strong> uma camada extra de segurança além da senha pessoal.</li>
-                <li><strong>Ofereça</strong> maior segurança para usuários.</li>
+    <main id="main-content">
+        <section class="twofa__intro" aria-labelledby="2fa-titulo">
+            <div class="twofa__intro-content">
+                <h1 id="2fa-titulo" class="twofa__heading">2FA</h1>
+                
+                <h2 class="twofa__subtitle">Two-Factor Authentication</h2>
+                <h2 class="twofa__title">Autenticação de dois fatores</h2>
+                
+                <p class="twofa__text">O 2FA é um procedimento de segurança que garante que serão necessários 2 fatores únicos para liberação de uma ação. O primeiro fator é a senha que o usuário e o segundo pode ser autenticado via token, via detecção de impressão digital, reconhecimento facial, código enviado via SMS, entre outros.</p>
+                
+                <div class="twofa__features-list">
+                    <h3 class="twofa__subheading">O 2FA permite que você:</h3>
+                    <ul class="twofa__features">
+                        <li class="twofa__feature-item"><strong class="twofa__feature-text">Envie</strong> uma senha via SMS, voz ou e-mail para autenticação do usuário.</li>
+                        <li class="twofa__feature-item"><strong class="twofa__feature-text">Adicione</strong> uma camada extra de segurança além da senha pessoal.</li>
+                        <li class="twofa__feature-item"><strong class="twofa__feature-text">Ofereça</strong> maior segurança para usuários.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="twofa__image">
+                <img class="twofa__image-img" src="IMG/icons-2/Two factor authentication-pana.png" alt="Ilustração de autenticação de dois fatores">
+            </div>
+        </section>
+
+        <section class="twofa__details" aria-labelledby="forca-titulo">
+            <h2 id="forca-titulo" class="sr-only">Força da estratégia de segurança</h2>
+            <div class="twofa__details-content">
+                <h2 class="twofa__subheading">Fortaleça a estratégia de segurança de seu negócio.</h2>
+                <p class="twofa__p">Um número de telefone de recuperação a uma conta individual pode bloquear até:</p>
+                <p class="twofa__difference">
+                    <strong class="twofa__difference-strong">100%</strong> dos bots automatizados,<br>
+                    <strong class="twofa__difference-strong">99%</strong> dos ataques de phishing em massa,<br>
+                    <strong class="twofa__difference-strong">66%</strong> dos ataques direcionados.
+                </p>
+            </div>
+        </section>
+
+        <section class="twofa__how" aria-labelledby="cf-titulo">
+            <h2 id="cf-titulo" class="twofa__title twofa__title--center">Como Funciona</h2>
+
+            <div class="twofa__steps-grid">
+                <article class="twofa__step twofa__step--primary">
+                    <img class="twofa__step-image" src="IMG/icons-2/Tablet login-bro.png" alt="Passo 1">
+                    <p class="twofa__step-text">Usuário acessa seu site ou aplicativo e digita a senha cadastrada para entrar em seu perfil ou completar uma transação.</p>
+                </article>
+
+                <article class="twofa__step twofa__step--dark">
+                    <img class="twofa__step-image" src="IMG/icons-2/Warning-rafiki-2.png" alt="Passo 2">
+                    <p class="twofa__step-text">A Telecall recebe a tentativa de login e solicita que o usuário insira seu número de telefone para autorizar o acesso.</p>
+                </article>
+
+                <article class="twofa__step twofa__step--primary">
+                    <img class="twofa__step-image" src="IMG/icons-2/Enter OTP-bro-2.png" alt="Passo 3">
+                    <p class="twofa__step-text">Após inserir seu número, a Telecall envia para o usuário por SMS, chamada ou e-mail um código PIN (One Time Password [OTP]) de uso único.</p>
+                </article>
+
+                <article class="twofa__step twofa__step--dark">
+                    <img class="twofa__step-image" src="IMG/icons-2/Enter OTP-rafiki-3.png" alt="Passo 4">
+                    <p class="twofa__step-text">O usuário insere o código no site ou aplicativo para concluir o processo de verificação.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="twofa__benefits" aria-labelledby="benef-titulo">
+            <h2 id="benef-titulo" class="twofa__title twofa__title--center">Benefícios</h2>
+            
+            <ul class="twofa__features twofa__features--benefits">
+                <li class="twofa__feature-item">Ofereça segurança aprimorada para seus clientes.</li>
+                <li class="twofa__feature-item">Reduza casos de fraude e invasões e evite o acesso a dados por invasores.</li>
+                <li class="twofa__feature-item">Envio de OTP por meio de vários canais, incluindo SMS, voz ou e-mail.</li>
+                <li class="twofa__feature-item">Flexibilidade de canais garante que o usuário conseguirá completar a tarefa desejada mesmo quando tiver problema com um deles.</li>
+                <li class="twofa__feature-item">API simples e de rápida implementação.</li>
+                <li class="twofa__feature-item">Plataforma intuitiva que permite visualizar relatórios de uso e pesquisar usando diversos critérios.</li>
             </ul>
-        </div>
-    </section>
+        </section>
 
-    <section class="info2-2fa">
-        <div class="info2-2fa-div">
-            <h2 class="h2-2">Fortaleça a estratégia de segurança de seu negócio.</h2>
-            <p>um número de telefone de recuperação a uma conta individual pode bloquear até:</p>
-            <p class="diferente"><strong>100%</strong> dos bots automatizados,<br><strong> 99%</strong> dos ataques de
-                phishing em massa,<br>  <strong>66%</strong> dos ataques direcionados.</p>
-        </div>
-    </section>
+        <section class="twofa__use-cases" aria-labelledby="qu-titulo">
+            <h2 id="qu-titulo" class="twofa__title twofa__title--center">Quem Usa?</h2>
+            
+            <div class="twofa__use-case-list">
+                <article class="twofa__use-case-card">
+                    <h3 class="twofa__use-case-title">Finanças</h3>
+                    <ul class="twofa__use-case-items">
+                        <li class="twofa__use-case-item">Acesso ao portal/app</li>
+                        <li class="twofa__use-case-item">Autenticação para transações</li>
+                        <li class="twofa__use-case-item">Pagamentos Online</li>
+                        <li class="twofa__use-case-item">Digital Wallets</li>
+                    </ul>
+                    <div class="twofa__use-case-images">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/Financas/bradesco.PNG" alt="Bradesco">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/Financas/mercadopago.PNG" alt="Mercado Pago">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/Financas/picpay.PNG" alt="PicPay">
+                    </div>
+                </article>
 
-    <div class="titulo"><h2>Como Funciona</h2></div>
+                <article class="twofa__use-case-card">
+                    <h3 class="twofa__use-case-title">Saúde</h3>
+                    <ul class="twofa__use-case-items">
+                        <li class="twofa__use-case-item">Acesso ao portal/app</li>
+                        <li class="twofa__use-case-item">Agendamentos</li>
+                        <li class="twofa__use-case-item">Tokens de autorização</li>
+                        <li class="twofa__use-case-item">Telemedicina</li>
+                    </ul>
+                    <div class="twofa__use-case-images">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/saude/amil.PNG" alt="Amil Saúde">
+                    </div>
+                </article>
 
-    <section class="como-funciona">
-        <div class="passo1">
-            <img src="IMG/icons-2/Tablet login-bro.png" alt="">
-            <p>Usuário acessa seu site ou aplicativo e digita a senha cadastrada para entrar em seu perfil ou completar
-                uma transação.</p>
-        </div>
+                <article class="twofa__use-case-card">
+                    <h3 class="twofa__use-case-title">Turismo</h3>
+                    <ul class="twofa__use-case-items">
+                        <li class="twofa__use-case-item">Acesso ao portal/app</li>
+                        <li class="twofa__use-case-item">Gestão de Reservas</li>
+                        <li class="twofa__use-case-item">Acesso ao histórico</li>
+                        <li class="twofa__use-case-item">Recuperação de Senha</li>
+                    </ul>
+                    <div class="twofa__use-case-images">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/turismo/airbnb.PNG" alt="Airbnb">
+                    </div>
+                </article>
 
-        <div class="passo2">
-            <img src="IMG/icons-2/Warning-rafiki-2.png" alt="">
-            <p>A Telecall recebe a tentativa de login e solicita que o usuário insira seu número de telefone para
-                autorizar o acesso.</p>
-        </div>
+                <article class="twofa__use-case-card">
+                    <h3 class="twofa__use-case-title">Varejo</h3>
+                    <ul class="twofa__use-case-items">
+                        <li class="twofa__use-case-item">Acesso ao portal/app</li>
+                        <li class="twofa__use-case-item">Salvar dados de pagamentos</li>
+                        <li class="twofa__use-case-item">Acesso ao histórico</li>
+                        <li class="twofa__use-case-item">Recibo Eletrônico</li>
+                    </ul>
+                    <div class="twofa__use-case-images">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/varejo/amazon.PNG" alt="Amazon">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/varejo/mercadolivre.PNG" alt="Mercado Livre">
+                    </div>
+                </article>
 
-        <div class="passo3">
-            <img src="IMG/icons-2/Enter OTP-bro-2.png" alt="">
-            <p>Após inserir seu número, a Telecall envia para o usuário por SMS, chamada ou e-mail um código PIN (One
-                Time Password [OTP]) de uso único.</p>
-        </div>
-
-        <div class="passo4">
-            <img src="IMG/icons-2/Enter OTP-rafiki-3.png" alt="">
-            <p>O usuário insere o código no site ou aplicativo para concluir o processo de verificação.</p>
-        </div>
-    </section>
-
-    <section class="beneficios">
-        <div class="funcao">
-            <h2 class="titulo2">Beneficios</h2>
-            <ul>
-                <li>Ofereça <strong>segurança aprimorada</strong> para seus clientes.</li>
-                <li>Reduza casos de <strong>fraude e invasões</strong> e evite o acesso a dados por invasores.</li>
-                <li>Envio de OTP por meio de <strong>vários canais</strong>, incluindo SMS, voz ou e-mail.</li>
-                <li><strong>Flexibilidade</strong> de canais garante que o usuário conseguirá completar a tarefa
-                    desejada mesmo quando tiver problema com um deles. Exemplo: Enviar OTP por SMS, em caso de falha,
-                    enviar OTP por chamada de voz, em caso de outra falha, enviar por e-mail.</li>
-                <li>API simples e de <strong>rápida implementação.</strong></li>
-                <li><strong>Plataforma intuitiva</strong> que permite visualizar relatórios de uso por dia, mês ou ano e
-                    pesquisar usando diversos critérios de filtro.</li>
-            </ul>
-        </div>
-    </section>
-    <section class="quem-usa2">
-        <div class="quem-usa2-h1">
-            <h2 class="titulo3">Quem Usa ?</h2>
-        </div>
-        <div class="quem-usa">
-
-            <div class="lista-quem-usa">
-                <h3>Finanças</h3>
-                <ul>
-                    <li>Acesso ao portal/app</li>
-                    <li>Autenticação para transações bancárias</li>
-                    <li>Pagamentos Online (PicPay, PayPal)</li>
-                    <li>Digital Wallets (Google Pay, Apple Pay, Samsung Pay)</li>
-                </ul>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/Financas/bradesco.PNG" alt="bradesco">
-                    <img src="IMG/Quem usa/Financas/mercadopago.PNG" alt="Mercado Pago">
-                    <img src="IMG/Quem usa/Financas/picpay.PNG" alt="PicPay">
-                </span>
+                <article class="twofa__use-case-card">
+                    <h3 class="twofa__use-case-title">Governo</h3>
+                    <ul class="twofa__use-case-items">
+                        <li class="twofa__use-case-item">Acesso ao portal/app</li>
+                        <li class="twofa__use-case-item">Gestão de informações</li>
+                        <li class="twofa__use-case-item">Agendamentos</li>
+                        <li class="twofa__use-case-item">Recuperação de Senha</li>
+                    </ul>
+                    <div class="twofa__use-case-images">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/governo/cnh.PNG" alt="CNH Digital">
+                        <img class="twofa__use-case-image" src="IMG/Quem usa/governo/governo.PNG" alt="Governo">
+                    </div>
+                </article>
             </div>
+        </section>
 
-            <div class="lista-quem-usa">
-                <h3>Saúde</h3>
-                <ul>
-                    <li>Acesso ao portal/app</li>
-                    <li>Agendamentos</li>
-                    <li>Tokens de autorização</li>
-                    <li>Telemedicina</li>
-                </ul>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/saude/amil.PNG" alt="Amil Saúde">
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑ Voltar ao topo</a>
+    </main>
 
-                </span>
-            </div>
-
-            <div class="lista-quem-usa">
-                <h3>Turismo</h3>
-                <ul>
-                    <li>Acesso ao portal/app</li>
-                    <li>Gestão de Reservas</li>
-                    <li>Acesso ao histórico</li>
-                    <li>Salvar dados de pagamentos</li>
-                    <li>Recuperação de Senha</li>
-                </ul>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/turismo/airbnb.PNG" alt="Airbnb">
-                </span>
-            </div>
-
-            <div class="lista-quem-usa">
-                <h3>Varejo</h3>
-                <ul>
-                    <li>Acesso ao portal/app</li>
-                    <li>Salvar dados de pagamentos</li>
-                    <li>Acesso ao histórico</li>
-                    <li>Recuperação de Senha</li>
-                    <li>Recibo Eletrônico</li>
-                </ul>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/varejo/amazon.PNG" alt="Amazon">
-                    <img src="IMG/Quem usa/varejo/appstore.PNG" alt="App Store">
-                    <img src="IMG/Quem usa/varejo/mercadolivre.PNG" alt="Mercado Livre">
-                </span>
-            </div>
-
-            <div class="lista-quem-usa">
-                <h3>Governo</h3>
-                <ul>
-                    <li>Acesso ao portal/app</li>
-                    <li>Gestão de informações</li>
-                    <li>Agendamentos</li>
-                    <li>Recuperação de Senha</li>
-                </ul>
-                <span class="img-quem-usa">
-                    <img src="IMG/Quem usa/governo/cnh.PNG" alt="CNH Digital">
-                    <img src="IMG/Quem usa/governo/governo.PNG" alt="">
-                    <img src="IMG/Quem usa/governo/governo2.PNG" alt="Receita Federal">
-                </span>
-            </div>
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
         </div>
-    </section>
-    <a id="link-topo" href="#">&#9650;</a>
-    <script src="JavaScript/Darkmode.js"></script>
+    </footer>
 
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
 </body>
-
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2023 Telecall. Todos os direitos reservados.</p><br>
-            <P>Desenvolvido por: <strong>João Vitor Gomes e Paulo Alves<strong></strong> </P>
-        </div>
-    </div>
-</footer>
-
 </html>

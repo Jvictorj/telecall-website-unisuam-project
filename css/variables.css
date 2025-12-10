@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+/* ========================================
+   GLOBAL DESIGN TOKENS & VARIABLES
+   ======================================== */
+
+:root {
+  /* Colors - Primary Palette */
+  --color-primary: #3477a7;
+  --color-primary-dark: #0d4e7c;
+  --color-primary-light: #29abe2;
+  --color-primary-lighter: #039ee0;
+
+  /* Colors - Secondary & Semantic */
+  --color-secondary: #cf2e2c;
+  --color-text: #222222;
+  --color-text-inverse: #ffffff;
+  --color-bg: #ffffff;
+  --color-bg-dark: #222222;
+  --color-bg-alt: #303030;
+  --color-border: #29abe2;
+
+  /* Spacing Scale (8px base) */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 50px;
+  --spacing-3xl: 70px;
+  --spacing-4xl: 80px;
+  --spacing-5xl: 100px;
+
+  /* Border Radius Scale */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 30px;
+  --radius-xl: 35px;
+  --radius-2xl: 40px;
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 3px 3px 10px #333;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(180deg, #29abe2 0%, #0a6288 100%);
+  --gradient-secondary: linear-gradient(180deg, #e83142 0%, #cd2131 100%);
+  --gradient-dark: linear-gradient(180deg, #313131e5 0%, #000000 100%);
+  --gradient-dark-transparent: linear-gradient(180deg, #1a1a1a7a 0%, #00000074 100%);
+
+  /* Typography */
+  --font-family: Arial, Helvetica, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.3rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --font-size-4xl: 4rem;
+
+  /* Motion */
+  --transition-fast: 0.3s;
+
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 580px;
+  --bp-lg: 820px;
+  --bp-xl: 1120px;
+  --bp-2xl: 1300px;
+}
+
+/* Dark Mode Theme */
+body.darkmode {
+  --color-bg: var(--color-bg-dark);
+  --color-text: var(--color-text-inverse);
+  --color-bg-img: var(--color-bg-alt);
+  --gradient-dark-product: var(--gradient-dark-transparent);
+}

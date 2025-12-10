@@ -5,167 +5,172 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecall - Google Verified</title>
-    <link rel="stylesheet" href="css/google.css">
+    <meta name="description" content="Google Verified Calls - Telecall. Chamadas verificadas com marca, logotipo e motivo da chamada para clientes Android.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - Google Verified Calls | Chamadas Verificadas</title>
+    
+    <link rel="stylesheet" href="./css/google.css">
     <link rel="shortcut icon" href="IMG/Icons/favicon.ico" type="image/x-icon">
-    <script src="JavaScript/google.js"></script>
-    <script src="JavaScript/fontsize.js"></script>
+    
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+    <link rel="preload" href="IMG/icons-2/Call center-amico.png" as="image">
 </head>
 
 <body>
-    <header class="menu-bg">
+    <header class="menu-bg" role="banner">
         <div class="menu">
-            <div class="menu-logo">
-                <a href="Index2.html"><img class="logo-telecall"
-                        src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
             </div>
-            <nav class="menu-nav">
-                <div class="nav-list">
-                    <ul>
-                        <li><a href="Index2.html">Home</a></li>
-                        <li><a href="2fa.html">2FA</a></li>
-                        <li><a href="numeromascara.html">Número Máscara</a></li>
-                        <li><a href="google.html">Google Verified Calls</a></li>
-                        <li><a href="sms.html">SMS Programável</a></li>
-                        <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
-                
-                        <div class="btn-size">
-                            <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                            <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                        </div>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    <li><a href="2fa.html" class="menu__nav-link">2FA</a></li>
+                    <li><a href="numeromascara.html" class="menu__nav-link">Número Máscara</a></li>
+                    <li><a href="google.html" class="menu__nav-link" aria-current="page">Google Verified Calls</a></li>
+                    <li><a href="sms.html" class="menu__nav-link">SMS Programável</a></li>
+                    
+                    <li class="menu__auth-btn">
+                        <img src="IMG/icons-2/icone-login.png" alt="">
+                        <a href="login.html">Área do cliente</a>
+                    </li>
 
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
 
-                        <div class="dark" id="dark">
-                            <button><img src="IMG/icon-dark-mode.png" alt="Modo Escuro" title="Modo Escuro" ></button>
-                        </div>
-                    </ul>
-                </div>
-            </nav> 
-            <div class="mobile-menu-icon">
-                <button onclick="menuShow()"><img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Menu de Navegação"></button>
+                    <div class="theme-toggle" id="dark">
+                        <button id="dark-toggle" class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
             </div>
         </div>
 
-        <div class="mobile-menu">
-            <ul>
-                <li><a href="2fa.html">2FA</a></li>
-                <li><a href="numeromascara.html">Número Máscara</a></li>
-                <li><a href="google.html">Google Verified Calls</a></li>
-                <li><a href="sms.html">SMS Programável</a></li>
-                <div><li id="log"><img src="IMG/icons-2/icone-login.png" alt=""><a href="log.html">Area do cliente</a></li></div>
-        
-                <div class="btn-size">
-                    <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                    <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                </div>
-
-                <div class="dark">
-                    <button><img src="IMG/icon-dark-mode.png" alt="Modo Escuro" title="Modo Escuro" id="dark2"></button>
-                </div>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="2fa.html" class="mobile-menu__link">2FA</a></li>
+                <li class="mobile-menu__item"><a href="numeromascara.html" class="mobile-menu__link">Número Máscara</a></li>
+                <li class="mobile-menu__item"><a href="google.html" class="mobile-menu__link" aria-current="page">Google Verified Calls</a></li>
+                <li class="mobile-menu__item"><a href="sms.html" class="mobile-menu__link">SMS Programável</a></li>
+                <li class="mobile-menu__item"><a href="login.html" class="mobile-menu__link">Área do cliente</a></li>
             </ul>
         </div>
     </header>
 
-    <section class="google-verified">
-        <h1 class="titulo-0">Google Verified Calls</h1>
-        <h2>Chamadas verificadas</h2>
-        <p>Esse novo recurso do <strong>Google</strong>, exclusivo para telefones <strong>Android</strong>, permite que
-            empresas exibam para o cliente na hora da chamada sua marca, logotipo e até mesmo o motivo da chamada.</p>
-        <p>A Telecall é a <strong>primeira operadora de telecom no Brasil</strong> a oferecer esse recurso do Google.
-        </p>
-        <div class="google-verified-img">
-            <img src="IMG/icons-2/Call center-amico.png" alt="">
-        </div>
-    </section class="Compatibilidade">
-
-    <section class="problema">
-        <h2 class="titulo-01">O Problema</h2>
-        <h3>Ligações de spam</h3>
-        <ul>
-            <li>O Brasil é o país que mais sofre com ligações de spam no mundo.</li>
-            <li>Desde 2017, as chamadas telefônicas de spam no Brasil aumentaram 141%.</li>
-            <li>O brasileiro recebe em média 49,9 ligações de spam por mês.</li>
-        </ul>
-        <div class="problema-img">
-            <h3>Ligações indesejadas no Brasil</h3>
-            <div class="img-bg">
-                <img src="IMG/span2.PNG"
-                    alt="Gráfico Ligações indesejadas no Brasil, 4% Telemarketing, 6% Operadoras, 42% Serviços Financeiros e 48% Fraude.">
+    <main id="main-content">
+        <section class="google__section" aria-labelledby="gvc-titulo">
+            <h1 id="gvc-titulo" class="google__title">Google Verified Calls</h1>
+            
+            <div class="google__content">
+                <h2 class="google__heading">Chamadas verificadas</h2>
+                <p>Esse novo recurso do <strong>Google</strong>, exclusivo para telefones <strong>Android</strong>, permite que empresas exibam para o cliente na hora da chamada sua marca, logotipo e até mesmo o motivo da chamada.</p>
+                <p>A Telecall é a <strong>primeira operadora de telecom no Brasil</strong> a oferecer esse recurso do Google.</p>
             </div>
+            
+            <div class="google__image">
+                <img src="IMG/icons-2/Call center-amico.png" alt="Ilustração de Google Verified Calls">
+            </div>
+        </section>
+
+        <section class="google__problems" aria-labelledby="problema-titulo">
+            <div class="google__problems-content">
+                <h2 id="problema-titulo" class="google__title-variant">O Problema</h2>
+                <h3 class="google__problem-title">Ligações de spam</h3>
+                
+                <ul class="google__list">
+                    <li class="google__list-item">O Brasil é o país que mais sofre com ligações de spam no mundo.</li>
+                    <li class="google__list-item">Desde 2017, as chamadas telefônicas de spam no Brasil aumentaram 141%.</li>
+                    <li class="google__list-item">O brasileiro recebe em média 49,9 ligações de spam por mês.</li>
+                </ul>
+            </div>
+            
+            <div class="google__problem-image">
+                <h3 class="google__problem-image-title">Ligações indesejadas no Brasil</h3>
+                <img class="google__problem-image-img" src="IMG/span2.PNG" alt="Gráfico estatístico de ligações indesejadas">
+            </div>
+        </section>
+
+        <section class="google__compatibility" aria-labelledby="compat-titulo">
+            <h2 id="compat-titulo" class="google__title-variant">Compatibilidade</h2>
+            
+            <ul class="google__list">
+                <li class="google__list-item">Exclusivo para sistema operacional Android através do aplicativo Telefone.</li>
+                <li class="google__list-item">Pré-instalado em telefones mais recentes ou pode ser baixado do Google Play Store para a maioria dos dispositivos com Android 9.0.</li>
+                <li class="google__list-item">Hoje no Brasil existem quase 239 milhões de celulares smartphone ativos, sendo que o sistema Android detém uma participação de mais de 86% do mercado de sistema operacional móvel no país.</li>
+            </ul>
+        </section>
+
+        <section class="google__how" aria-labelledby="cf-titulo">
+            <h2 id="cf-titulo" class="google__title" style="grid-column: 1/-1; text-align: center;">Como funciona?</h2>
+            
+            <article class="google__step">
+                <img class="google__step-image" src="IMG/icons-2/Call center-cuate.png" alt="">
+                <p class="google__step-text">Uma chamada telefônica de uma empresa assinante é feita para um cliente potencial ou existente.</p>
+            </article>
+
+            <article class="google__step">
+                <img class="google__step-image" src="IMG/icons-2/Fast loading-pana.png" alt="">
+                <p class="google__step-text">Em nanossegundos, a solicitação é encaminhada para a plataforma da Telecall que processa a chamada e adiciona as informações verificadas.</p>
+            </article>
+
+            <article class="google__step">
+                <img class="google__step-image" src="IMG/icons-2/2023-06-05 (2).png" alt="">
+                <p class="google__step-text">As informações aparecem na tela do celular do recipiente que atenderá a ligação com uma chamada de voz normal.</p>
+            </article>
+        </section>
+
+        <section class="google__benefits" aria-labelledby="benef-titulo">
+            <h2 id="benef-titulo" class="google__title-variant">Benefícios</h2>
+            
+            <dl>
+                <dt class="google__benefit-item">Estabeleça Confiança</dt>
+                <dd class="google__benefit-description">Clientes são mais propensos a atender chamadas de organizações com os quais estão familiarizadas e com as quais já tem relação.</dd>
+                
+                <dt class="google__benefit-item">Agilize a Conexão</dt>
+                <dd class="google__benefit-description">Quando o motivo da chamada é claro, a chance de o cliente atender é muito maior e a conexão com ele mais rápida e eficiente.</dd>
+                
+                <dt class="google__benefit-item">Melhore a Experiência do Cliente</dt>
+                <dd class="google__benefit-description">O nome da marca, logotipo e a visualização do motivo da chamada oferecem uma experiência melhor e muito mais amigável para o cliente.</dd>
+            </dl>
+        </section>
+
+        <section class="google__use-cases" aria-labelledby="usos-titulo">
+            <h2 id="usos-titulo" class="google__title-variant">Usos</h2>
+            
+            <ul class="google__list">
+                <li class="google__use-case-item">Aviso de problemas de <strong>fraude</strong> de cartão de crédito.</li>
+                <li class="google__use-case-item">Aviso de atrasos e cancelamentos de <strong>voos.</strong></li>
+                <li class="google__use-case-item"><strong>Agendamentos</strong> de serviços, entregas, reparos e instalações.</li>
+                <li class="google__use-case-item"><strong>Avisos</strong> sobre agendamentos, exames e resultados.</li>
+                <li class="google__use-case-item">Oferecer uma melhor experiência de <strong>vendas</strong> e <strong>promoções.</strong></li>
+            </ul>
+        </section>
+
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑ Voltar ao topo</a>
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
         </div>
-    </section>
-    <section class="compatibilidade">
-        <h2 class="titulo-02">Compatibilidade</h2>
-        <ul>
-            <li>Exclusivo para sistema operacional <strong>Android</strong> através do aplicativo
-                <strong>Telefone.</strong>
-            </li>
-            <li>Pré-instalado em telefones mais recentes ou pode ser baixado do <strong>Google Play Store</strong> para
-                a maioria dos dispositivos com Android 9.0.</li>
-            <li>Hoje no Brasil existem quase <strong>239 milhões de celulares smartphone ativos</strong>, sendo que o
-                sistema <strong> Android</strong> detém uma participação de mais de <strong>86%</strong> do mercado de
-                sistema operacional móvel no país.</li>
-        </ul>
-        <img src="" alt="">
-    </section>
+    </footer>
 
-    <section class="como-funciona">
-        <h2 class="titulo">Como funciona?</h2>
-        <div class="como-funciona-1">
-            <img src="IMG/icons-2/Call center-cuate.png" alt="">
-            <p>Uma chamada telefônica de uma empresa assinante é feita para um cliente potencial ou existente.</p>
-        </div>
-
-        <div class="como-funciona-2">
-            <img src="IMG/icons-2/Fast loading-pana.png" alt="">
-            <p>Em nanossegundos, a solicitação é encaminhada para a plataforma da Telecall que processa a chamada e
-                adiciona as informações verificadas antes de encaminhá-la ao destinatário.</p>
-        </div>
-
-        <div class="como-funciona-1">
-            <img src="IMG/icons-2/2023-06-05 (2).png" alt="">
-            <p>As informações aparecem na tela do celular do recipiente que atenderá a ligação com uma chamada de voz
-                normal.</p>
-        </div>
-    </section>
-
-    <section class="beneficios">
-        <h2 class="titulo-03">Benefícios</h2>
-        <ul>
-            <li>Estabeleça Confiança</li>
-            <p>Clientes são mais propensos a atender chamadas de organizações com os quais estão familiarizadas e com as
-                quais já tem relação.</p>
-            <li>Agilize a Conexão</li>
-            <p>Quando o motivo da chamada é claro, a chance de o cliente atender é muito maior e a conexão com ele mais
-                rápida e eficiente.</p>
-            <li>Melhore a Experiência do Cliente</li>
-            <p>O nome da marca, logotipo e a visualização do motivo da chamada oferecem uma experiencia
-                melhor e muito mais amigável para o cliente.</p>
-        </ul>
-    </section>
-
-    <section class="usos">
-        <h2 class="titulo-04">Usos</h2>
-        <ul>
-            <li>Aviso de problemas de <strong>fraude</strong> de cartão de crédito.</li>
-            <li>Aviso de atrasos e cancelamentos de <strong>voos.</strong></li>
-            <li><strong>Agendamentos</strong> de serviços, entregas, reparos e instalações.</li>
-            <li><strong>Avisos</strong> sobre agendamentos, exames e resultados.</li>
-            <li>Oferecer uma melhor experiência de <strong>vendas</strong> e <strong>promoções.</strong></li>
-        </ul>
-    </section>
-    <a id="link-topo" href="#">&#9650;</a>
-    <script src="JavaScript/Darkmode.js"></script>
-
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
 </body>
-
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2023 Telecall. Todos os direitos reservados.</p><br>
-            <P>Desenvolvido por: <strong>João Vitor Gomes e Paulo Alves<strong></strong> </P>
-        </div>
-    </div>
-</footer>
-
 </html>
