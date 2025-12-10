@@ -1,155 +1,160 @@
+/**
+ * Password Reset Page Styles (redefinir.css)
+ * Uses BEM naming convention and shared design system
+ */
+
 @charset "UTF-8";
 
-:root{
-    --body-bg: #ffffff;
-    --body-color: #222222;
-    --fundo-img:#ffffff;
-    --produto:linear-gradient(180deg, #313131e5 0%, #000000 100%);
-  }
-  
-  .dark-mode:root{
-    --body-bg: #222222;
-    --body-color: #ffffff;
-    --fundo-img:#303030;
-    --produto:linear-gradient(180deg, #1a1a1a7a 0%, #00000074 100%);
-  }
+@import url('./variables.css');
+@import url('./reset.css');
+@import url('./components.css');
+@import url('./footer.css');
 
-body{
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #cf2e2e;
+/* ============================================================
+   LAYOUT CONTAINER
+   ============================================================ */
+
+.reset__container {
+  min-height: calc(100vh - 180px); /* Altura total menos header/footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--color-bg);
 }
 
-p {
-    letter-spacing: 1.4px;
-    line-height: 145%;
-  }
-  
-  /*img com max do seu tamanho e responsivo*/
-  img {
-    display: block;
-    max-width: 100%;
-  }
+/* ============================================================
+   RESET CARD CONTENT
+   ============================================================ */
 
-
-.menu-logo img {
-    max-width: 220px;
+.reset__content {
+  background-color: var(--color-bg);
+  padding: var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast);
 }
 
-  
-.menu-list ul {
-    display: flex;
-    list-style: none;
-    color: #000000;
+.reset__content:hover {
+  transform: translateY(-2px);
 }
 
+/* ============================================================
+   HEADER ELEMENTS
+   ============================================================ */
 
-.container{
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+.reset__logo {
+  max-width: 60px;
+  margin-bottom: var(--spacing-lg);
 }
 
-.conteudo{
-    max-width: 500px;
-    height: auto;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    background-color: #ffffff;
-
-}
-img{
-    display: inline;
-    max-width: 50px;
-    padding:50px 50px 10px 50px;
-
+.reset__title {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-md);
 }
 
-h1{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0px 5px 30px 5px;
+.reset__text {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.5;
 }
 
-p{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin: 0px;
-    color: var(--body-color);
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+
+.reset__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
 }
 
-.container-form{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    
+.reset__form-group {
+  text-align: left;
 }
 
-label{
-    display: block;
-    margin-top: 30px;
-    color: var(--body-color);
+.reset__label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
 }
 
-input{
-    padding: 8px 50px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 2px solid;
-    text-align: left;
+.reset__input {
+  width: 100%;
+  padding: 12px;
+  font-size: var(--font-size-base);
+  border: 2px solid #ccc;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
 }
 
-input:hover{
-    border: 2px solid #cd2131
+.reset__input:focus {
+  border-color: var(--color-primary-light);
+  outline: none;
 }
 
-.botao{
-    font-size: 1rem;
+/* ============================================================
+   ACTIONS & BUTTONS
+   ============================================================ */
+
+.reset__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.reset__submit-btn {
+  background: var(--gradient-secondary);
+  color: white;
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  padding: var(--spacing-sm);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: filter var(--transition-fast), transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.reset__submit-btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.reset__cancel-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.reset__cancel-link:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .reset__content {
+    padding: var(--spacing-lg);
+    box-shadow: none;
     border: none;
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 30px 30px 50px 30px;
-    background: linear-gradient(180deg, #e83142 0%, #cd2131 100%);
-    color: #fff6f9;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    cursor: pointer;
-}
+  }
 
-.botao:hover{
-    background: linear-gradient(180deg, #b72735 0%, #851621 100%);
-}
-
-.footer-fundo{
-    background: rgb(28, 28, 28);
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-  
-.footer p{
-    flex: 1;
-    text-align: center;
-    color: white;
-}
-
-
-@media (max-width: 800px){
-    .footer-fundo{
-        padding: 10px 30px;
-    }
+  .reset__title {
+    font-size: var(--font-size-xl);
+  }
 }

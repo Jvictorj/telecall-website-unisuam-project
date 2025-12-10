@@ -1,0 +1,312 @@
+/* ========================================
+   HEADER & NAVIGATION COMPONENTS
+   ======================================== */
+
+/* Menu Background Container */
+.menu-bg {
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  box-shadow: var(--shadow-md);
+}
+
+/* Main Menu Container */
+.menu {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-lg) 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Menu Logo */
+.menu__logo img {
+  max-width: 220px;
+  margin-left: var(--spacing-md);
+}
+
+/* Desktop Navigation */
+.menu__nav {
+  align-self: center;
+}
+
+.menu__nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+  gap: var(--spacing-md);
+  color: var(--color-text-inverse);
+}
+
+.menu__nav-link {
+  padding: var(--spacing-xs);
+  text-decoration: none;
+  position: relative;
+  color: var(--color-text-inverse);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.menu__nav-link::after {
+  content: "";
+  display: block;
+  height: 1.5px;
+  width: 0;
+  background-color: var(--color-primary-lighter);
+  margin-top: var(--spacing-xs);
+  transition: width var(--transition-fast);
+  position: absolute;
+}
+
+.menu__nav-link:hover::after {
+  width: 100%;
+}
+
+.menu__nav-link:hover {
+  color: var(--color-primary-lighter);
+}
+
+@media (max-width: 820px) {
+  .menu__nav {
+    display: none;
+  }
+}
+
+/* ========================================
+   AUTHENTICATION BUTTON
+   ======================================== */
+
+.menu__auth-btn {
+  border: solid var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.menu__auth-btn img {
+  display: inline;
+  width: 14px;
+}
+
+.menu__auth-btn a {
+  margin-right: var(--spacing-xs);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+   ======================================== */
+
+.theme-toggle {
+  width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle__btn {
+  background-color: transparent;
+  border: 2px solid var(--color-text-inverse);
+  border-radius: 50%;
+  padding: var(--spacing-xs);
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.theme-toggle__btn:hover {
+  border-color: var(--color-secondary);
+}
+
+.theme-toggle__btn img {
+  width: 38px;
+}
+
+/* ========================================
+   FONT SIZE CONTROLS
+   ======================================== */
+
+.font-controls {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.font-controls__btn {
+  background-color: transparent;
+  border: 2px solid var(--color-text-inverse);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.font-controls__btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.font-controls__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   MOBILE MENU
+   ======================================== */
+
+.mobile-menu {
+  display: none;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  padding-bottom: var(--spacing-md);
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  list-style: none;
+}
+
+.mobile-menu__item {
+  padding: var(--spacing-md) 0;
+}
+
+.mobile-menu__link {
+  text-decoration: none;
+  color: var(--color-text-inverse);
+  transition: color var(--transition-fast);
+}
+
+.mobile-menu__link:hover {
+  color: var(--color-primary-lighter);
+}
+
+.mobile-menu--open {
+  display: block;
+}
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-md);
+}
+
+.mobile-menu-toggle__icon {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 820px) {
+  .mobile-menu-toggle {
+    display: inline-block;
+  }
+
+  .menu {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+@media (max-width: 1300px) {
+  .menu {
+    justify-content: space-around;
+  }
+
+  .menu__nav-link::after {
+    display: none;
+  }
+}
+
+/* ========================================
+   IMAGE SIZING & ICONS
+   ======================================== */
+
+/* Logo Classes */
+.logo-telecall {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Icon Classes */
+.icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon-large {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Navigation Icons */
+img[src*="icone-login"],
+img[src*="icon-dark-mode"] {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Service Icons */
+img[src*="icon-serviços"],
+img[src*="pin-code"],
+img[src*="numero-mascara"],
+img[src*="google-verified"],
+img[src*="email.png"] {
+  max-width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Content Images */
+.image-modavo {
+  width: 100%;
+  max-width: 600px;
+}
+
+.image-modavo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.img-modavo02 {
+  max-width: 400px;
+  height: auto;
+}
+
+/* Illustration Images */
+img[src*="icons-2"],
+img[src*="modavo"],
+img[src*="Two factor"],
+img[src*="Tablet"],
+img[src*="Warning"],
+img[src*="Enter OTP"],
+img[src*="Call center"] {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Use Case Images */
+.img-quem-usa {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+}
+
+.img-quem-usa img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}

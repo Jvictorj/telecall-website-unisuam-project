@@ -1,0 +1,89 @@
+/* ========================================
+   FORM ELEMENTS & BUTTONS
+   ======================================== */
+
+@charset "UTF-8";
+
+@import url('./variables.css');
+
+/* Heading Styles */
+.form__heading {
+  font-size: var(--font-size-3xl);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-primary);
+}
+
+/* Button Styles */
+.form__button {
+  font-size: var(--font-size-base);
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  font-weight: bold;
+}
+
+.form__button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1.1);
+}
+
+.form__button:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   CTA SECTION (CADASTRE) - CORREÇÃO
+   ======================================== */
+
+.cadastre {
+  padding: var(--spacing-5xl) var(--spacing-md);
+  width: 100%;
+}
+
+.cadastre-container {
+  max-width: 800px;
+  margin: 0 auto;       /* Centraliza o bloco na horizontal */
+  text-align: center;   /* Centraliza o texto interno */
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Força o alinhamento central dos itens flex */
+  justify-content: center;
+}
+
+.cadastre-container p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.btn-login-container {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 480px) {
+  .form__heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .form__button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    width: 100%; /* Botão full width no mobile */
+    text-align: center;
+  }
+}

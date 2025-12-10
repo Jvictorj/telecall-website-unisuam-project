@@ -1,209 +1,367 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecall - Cadastro</title>
+    <meta name="description" content="Cadastre-se na plataforma Telecall - CPaaS de comunicações integradas.">
+    <meta name="theme-color" content="#3477a7">
+    
+    <title>Telecall - Cadastro | Crie sua Conta</title>
+    
     <link rel="stylesheet" href="./css/cadastro.css">
     <link rel="shortcut icon" href="IMG/Icons/favicon.ico" type="image/x-icon">
-    <script src="JavaScript/fontsize.js"></script>
-    <script src="JavaScript/busca-cep.js"></script>
+    
+    <link rel="preload" href="./IMG/imagens/logo_telecall_branco_vermelho_p.png" as="image">
+    <link rel="preload" href="IMG/banner-cadastro.png" as="image">
 </head>
+
 <body>
-    <header class="menu-bg">
+    <header class="menu-bg" role="banner">
         <div class="menu">
-            <div class="menu-logo">
-                <a href="index.html"><img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
+            <div class="menu__logo">
+                <a href="index.html" aria-label="Telecall - Voltar para página inicial">
+                    <img class="logo-telecall" src="./IMG/imagens/logo_telecall_branco_vermelho_p.png" alt="Logo Telecall">
+                </a>
             </div>
-            <div class="home">
-                <ul><li><a href="index.html">Home</a></li></ul>
+            
+            <nav class="menu__nav" aria-label="Navegação principal">
+                <ul class="menu__nav-list">
+                    <li><a href="index.html" class="menu__nav-link">Home</a></li>
+                    
+                    <div class="font-controls" role="group" aria-label="Controles de tamanho de fonte">
+                        <button class="font-controls__btn" name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
+                        <button class="font-controls__btn" name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
+                    </div>
+
+                    <div class="theme-toggle" id="dark">
+                        <button id="dark-toggle" class="theme-toggle__btn" aria-label="Alternar modo escuro" title="Modo Escuro">
+                            <img src="IMG/icon-dark-mode.png" alt="">
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-toggle">
+                <button class="mobile-menu-toggle__btn" onclick="menuShow()" aria-label="Abrir menu">
+                    <img class="icon" src="IMG/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="">
+                </button>
             </div>
-            <div class="bem-vindo">
-                <p>BEM VINDO(A) !</p>
-                <a class="entrar-button" href="log.html">LOGIN</a>
+        </div>
 
-                <div class="btn-size">
-                    <button name="increase-font" id="increase-font" title="Aumentar fonte">A +</button>
-                    <button name="decrease-font" id="decrease-font" title="Diminuir fonte">A -</button>
-                </div>
-
-
-                <div class="dark" id="dark">
-                    <button><img src="IMG/icon-dark-mode.png" alt="Modo Escuro" title="Modo Escuro" ></button>
-                </div>
-
-            </div>
+        <div class="mobile-menu" id="mobile-menu" hidden>
+            <ul class="mobile-menu__list">
+                <li class="mobile-menu__item"><a href="index.html" class="mobile-menu__link">Home</a></li>
+                <li class="mobile-menu__item"><a href="login.html" class="mobile-menu__link">Login</a></li>
+            </ul>
         </div>
     </header>
 
-    <div class="conteudo">
-        <div class="form-image">
-            <img src="IMG/banner-cadastro.png" alt="">
-        </div>
-        <form id="form" class="form">
-            <div class="form-div">
-                    <div class="form-header">
-                        <div class="title">
-                            <h1>CADASTRE-SE</h1>
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <div class="group">
-                            <div class="input-box1">
-                                <div>
-                                    <label for="nome">Nome completo:</label>
-                                    <input type="text" placeholder="Digite seu nome" id="nome" minlength="15" maxlength="60" class="inputs required" oninput="nomeValidate()" required>
-                                    <span class="span-required" id="nomeError">Nome deve ter no mínimo 15 caracteres</span>
-                                </div>
-                                <div>
-                                    <label for="nomematerno">Nome Materno:</label>
-                                    <input type="text" placeholder="Digite o nome materno" id="nomematerno" class="inputs required" oninput="nomemValidate()" required>
-                                    <span class="span-required" id="nomematernoError">Digite um nome materno válido</span>
-                                </div>
-                                <div>
-                                    <label for="cpf">CPF:</label>
-                                    <input type="text" placeholder="000.000.000-00" id="cpf" maxlength="11" class="inputs required" oninput="cpfValidate()" onblur="mascaraCpf(this)" required>
-                                    <span class="span-required" id="cpfError">Digite apenas números do CPF</span>
-                                </div>
-                                <div>
-                                    <label for="email">Email:</label>
-                                    <input type="email" placeholder="Digite seu email" id="email" class="inputs required" oninput="emailValidate()" required>
-                                    <span class="span-required" id="emailError">Digite um email válido</span>
-                                </div>
-                                <div>
-                                    <label for="fixo">Telefone Fixo:</label>
-                                    <input type="tel" placeholder="(xx) xxxx-xxxx" id="telfix" class="inputs required" maxlength="10" oninput="telefixValidate()" onblur="mascaraTele(this)" onfocus="tiraHifen(this)" required>
-                                    <span class="span-required" id="telfixError">Digite um telefone fixo válido</span>
-                                </div>
-
-                                <div>
-                                    <label for="cell">Telefone Celular:</label>
-                                    <input type="tel" placeholder="(xx) xx xxxx-xxxxx" id="telcel" class="inputs required" maxlength="11" oninput="telcelValidate()" onblur="mascaraCell(this)" onfocus="tiraHifen(this)" required>
-                                    <span class="span-required" id="telcelError">Digite um telefone celular válido</span>
-                                </div>
-
-                                <div>
-                                    <label for="login">Login:</label>
-                                    <input type="text" placeholder="Digite seu Login" id="login"  maxlength="6" class="inputs required" oninput="loginValidate()" required>
-                                    <span class="span-required" id="loginError">Digite um Login com 6 caracteres</span>
-                                </div>
-
-                                <div class="data">
-                                    <label for="data">Data de Nascimento</label>
-                                    <input type="date" id="nasc" class="inputs required" oninput="dataValidate()" required>
-                                    <span class="span-required" id="nascError">Digite sua data de Nascimento</span>
-                                </div>
-
-                            </div>
-                            <div class="input-box2">
-
-                                <div>
-                                    <label for="cep">CEP:</label>
-                                    <input type="text" placeholder="Digite seu CEP" id="cep" maxlength="8" class="inputs required" oninput="cepValidate()" onblur="preencherEndereco()" required>
-                                    <span class="span-required" id="cepError">Digite um cep válido</span>
-                                </div>
-
-                                <div>
-                                    <label for="logradouro">Logradouro:</label>
-                                    <input type="text" placeholder="Rua" id="logradouro" readonly>
-                                </div>
-                                
-                                <div>
-                                    <label for="bairro">Bairro:</label>
-                                    <input type="text" placeholder="Bairro" id="bairro" readonly>
-                                </div>
-                                
-                                <div>
-                                    <label for="cidade">Cidade:</label>
-                                    <input type="text" placeholder="Cidade" id="cidade" readonly>
-                                </div>
-                                
-                                <div>
-                                    <label for="estado">Estado:</label>
-                                    <input type="text" placeholder="Estado" id="estado" readonly>
-                                </div>
-                    
-                                <div>
-                                    <label for="comp">Complemento do endereço:</label>
-                                    <input type="text" placeholder="Complemente seu endereço" id="comp" class="inputs required" oninput="compValidate()">
-                                    <span class="span-required" id="compError">Digite um Complemento válido</span>
-                                </div>
-                    
-                                <div>
-                                    <label for="senha">Senha:</label>
-                                    <input type="password" placeholder="Senha" id="senha" maxlength="8" class="inputs required" oninput="mainPasswordValidate()" required>
-                                    <span class="span-required" id="senhaError">Digite uma senha com no mínimo 8 caracteres</span>
-                                </div>
-                                <div>
-                                    <label for="confirme">Confirme sua senha:</label>
-                                    <input type="password" placeholder="Digite sua senha novamente" id="senhaconfirm" maxlength="8" class="inputs required" oninput="comparePassword()" required>
-                                    <span class="span-required" id="senhaconfirmError">Senhas devem ser compatíveis</span>
-                                </div>
-
-                                
-
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="gender-inputs">
-                        <div class="gender-itens">
-                            <p>Gênero:</p>
-                            <div class="gender-box1">
-                                <div class="gender-input">
-                                    <input type="radio" id="famele" name="gender" required>
-                                    <label for="famele">Feminino</label>
-                                </div>
-                                <div class="gender-input">
-                                    <input type="radio" id="mele" name="gender" required>
-                                    <label for="mele">Masculino</label>
-                                </div>
-                            </div>
-                            <div class="gender-box2">
-                                <div class="gender-input">
-                                    <input type="radio" id="others" name="gender" required>
-                                    <label for="others">Outro</label>
-                                </div>
-                                <div class="gender-input">
-                                    <input type="radio" id="none" name="gender" required>
-                                    <label for="none">Prefiro não dizer</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div id="errorContainer" class="error-container"></div>
-                    
-                    <div class="cadastroii">
-                        <input type="submit" value="Cadastrar" onclick="realizarCadastro(); return false;">
-                    </div>
-                    <span id="mensagemCadastro" style="display: none;"></span>
-                    <span id="mensagemErro"></span>
+    <main id="main-content">
+        <div class="registration__container">
+            
+            <div class="registration__image">
+                <img src="IMG/banner-cadastro.png" alt="Banner ilustrativo de cadastro">
             </div>
-        </form>
-    </div>
-                    <a id="link-topo" href="#">&#9650;</a>
 
-    <script src="JavaScript/Cadastro.js"></script>
-    <script src="JavaScript/Darkmode.js"></script>
-  
+            <div class="registration__content">
+                <form id="form" class="registration__form" method="POST" novalidate aria-labelledby="form-titulo">
+                    
+                    <div class="registration__header">
+                        <h1 id="form-titulo" class="registration__title">Cadastre-se</h1>
+                        <div class="registration__divider"></div>
+                    </div>
 
-</body>
+                    <fieldset class="registration__fieldset">
+                        <legend class="sr-only">Dados Pessoais e de Contato</legend>
+                        
+                        <div class="registration__column">
+                            <div class="registration__field-group">
+                                <label for="nome" class="registration__label">Nome completo:</label>
+                                <input 
+                                    type="text" 
+                                    id="nome" 
+                                    name="nome" 
+                                    placeholder="Digite seu nome" 
+                                    minlength="15" 
+                                    maxlength="60" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="nomeError">
+                                <span class="registration__error" id="nomeError" role="alert">Nome deve ter no mínimo 15 caracteres</span>
+                            </div>
 
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2023 Telecall. Todos os direitos reservados.</p><br>
-            <P>Desenvolvido por: <strong>João Vitor Gomes e Paulo Alves<strong></strong> </P>
+                            <div class="registration__field-group">
+                                <label for="nomematerno" class="registration__label">Nome materno:</label>
+                                <input 
+                                    type="text" 
+                                    id="nomematerno" 
+                                    name="nomematerno" 
+                                    placeholder="Digite o nome materno" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="nomematernoError">
+                                <span class="registration__error" id="nomematernoError" role="alert">Digite um nome materno válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="cpf" class="registration__label">CPF:</label>
+                                <input 
+                                    type="text" 
+                                    id="cpf" 
+                                    name="cpf" 
+                                    placeholder="000.000.000-00" 
+                                    maxlength="14" 
+                                    class="registration__input required" 
+                                    inputmode="numeric"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="cpfError">
+                                <span class="registration__error" id="cpfError" role="alert">Digite apenas números do CPF</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="email" class="registration__label">Email:</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="Digite seu email" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="emailError">
+                                <span class="registration__error" id="emailError" role="alert">Digite um email válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="telfix" class="registration__label">Telefone fixo:</label>
+                                <input 
+                                    type="tel" 
+                                    id="telfix" 
+                                    name="telfix" 
+                                    placeholder="(xx) xxxx-xxxx" 
+                                    maxlength="14" 
+                                    class="registration__input required" 
+                                    inputmode="tel"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="telfixError">
+                                <span class="registration__error" id="telfixError" role="alert">Digite um telefone fixo válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="telcel" class="registration__label">Telefone celular:</label>
+                                <input 
+                                    type="tel" 
+                                    id="telcel" 
+                                    name="telcel" 
+                                    placeholder="(xx) xxxxx-xxxx" 
+                                    maxlength="15" 
+                                    class="registration__input required" 
+                                    inputmode="tel"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="telcelError">
+                                <span class="registration__error" id="telcelError" role="alert">Digite um telefone celular válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="login" class="registration__label">Login:</label>
+                                <input 
+                                    type="text" 
+                                    id="login" 
+                                    name="login" 
+                                    placeholder="Digite seu login" 
+                                    maxlength="6" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="loginError">
+                                <span class="registration__error" id="loginError" role="alert">Digite um login com 6 caracteres</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="nasc" class="registration__label">Data de nascimento:</label>
+                                <input 
+                                    type="date" 
+                                    id="nasc" 
+                                    name="nasc" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="nascError">
+                                <span class="registration__error" id="nascError" role="alert">Digite sua data de nascimento</span>
+                            </div>
+                        </div>
+
+                        <div class="registration__column">
+                            <div class="registration__field-group">
+                                <label for="cep" class="registration__label">CEP:</label>
+                                <input 
+                                    type="text" 
+                                    id="cep" 
+                                    name="cep" 
+                                    placeholder="Digite seu CEP" 
+                                    maxlength="8" 
+                                    class="registration__input required" 
+                                    inputmode="numeric"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="cepError">
+                                <span class="registration__error" id="cepError" role="alert">Digite um CEP válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="logradouro" class="registration__label">Logradouro:</label>
+                                <input 
+                                    type="text" 
+                                    id="logradouro" 
+                                    name="logradouro" 
+                                    placeholder="Rua" 
+                                    readonly
+                                    class="registration__input registration__input--readonly"
+                                    aria-label="Logradouro - preenchido automaticamente">
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="bairro" class="registration__label">Bairro:</label>
+                                <input 
+                                    type="text" 
+                                    id="bairro" 
+                                    name="bairro" 
+                                    placeholder="Bairro" 
+                                    readonly
+                                    class="registration__input registration__input--readonly"
+                                    aria-label="Bairro - preenchido automaticamente">
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="cidade" class="registration__label">Cidade:</label>
+                                <input 
+                                    type="text" 
+                                    id="cidade" 
+                                    name="cidade" 
+                                    placeholder="Cidade" 
+                                    readonly
+                                    class="registration__input registration__input--readonly"
+                                    aria-label="Cidade - preenchido automaticamente">
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="estado" class="registration__label">Estado:</label>
+                                <input 
+                                    type="text" 
+                                    id="estado" 
+                                    name="estado" 
+                                    placeholder="Estado" 
+                                    readonly
+                                    class="registration__input registration__input--readonly"
+                                    aria-label="Estado - preenchido automaticamente">
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="comp" class="registration__label">Complemento:</label>
+                                <input 
+                                    type="text" 
+                                    id="comp" 
+                                    name="comp" 
+                                    placeholder="Complemente seu endereço" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="compError">
+                                <span class="registration__error" id="compError" role="alert">Digite um complemento válido</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="senha" class="registration__label">Senha:</label>
+                                <input 
+                                    type="password" 
+                                    id="senha" 
+                                    name="senha" 
+                                    placeholder="Mínimo 8 caracteres" 
+                                    maxlength="8" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="senhaError">
+                                <span class="registration__error" id="senhaError" role="alert">Digite uma senha com no mínimo 8 caracteres</span>
+                            </div>
+
+                            <div class="registration__field-group">
+                                <label for="senhaconfirm" class="registration__label">Confirme sua senha:</label>
+                                <input 
+                                    type="password" 
+                                    id="senhaconfirm" 
+                                    name="senhaconfirm" 
+                                    placeholder="Digite sua senha novamente" 
+                                    maxlength="8" 
+                                    class="registration__input required" 
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="senhaconfirmError">
+                                <span class="registration__error" id="senhaconfirmError" role="alert">Senhas devem ser compatíveis</span>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="registration__gender-wrapper">
+                        <legend class="sr-only">Selecione seu Gênero</legend>
+                        <p class="registration__gender-title">Gênero:</p>
+                        
+                        <div class="registration__gender-options">
+                            <div class="registration__radio-group">
+                                <input type="radio" id="famele" name="gender" value="feminino" required>
+                                <label for="famele">Feminino</label>
+                            </div>
+
+                            <div class="registration__radio-group">
+                                <input type="radio" id="mele" name="gender" value="masculino" required>
+                                <label for="mele">Masculino</label>
+                            </div>
+
+                            <div class="registration__radio-group">
+                                <input type="radio" id="others" name="gender" value="outro" required>
+                                <label for="others">Outro</label>
+                            </div>
+
+                            <div class="registration__radio-group">
+                                <input type="radio" id="none" name="gender" value="prefiro-nao-dizer" required>
+                                <label for="none">Prefiro não dizer</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div id="errorContainer" class="registration__error-container" role="region" aria-live="polite"></div>
+
+                    <div class="registration__actions">
+                        <button type="submit" class="registration__submit-btn">Cadastrar</button>
+                    </div>
+
+                    <span id="mensagemCadastro" class="registration__feedback--success" role="status" aria-live="polite"></span>
+                    <span id="mensagemErro" class="registration__feedback--error" role="alert" aria-live="assertive"></span>
+                </form>
+            </div>
         </div>
-    </div>
-</footer>
 
+        <a href="#main-content" class="back-to-top" title="Voltar ao topo">↑ Voltar ao topo</a>
+    </main>
+
+    <footer role="contentinfo" class="footer">
+        <div class="footer__text">
+            <p>&copy; 2023 Telecall. Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>João Vitor Gomes</strong> e <strong>Paulo Alves</strong></p>
+        </div>
+    </footer>
+
+    <script src="JavaScript/fontsize.js" defer></script>
+    <script src="JavaScript/busca-cep.js" defer></script>
+    <script src="JavaScript/register.js" defer></script>
+    <script src="JavaScript/darkmode.js" defer></script>
+    <script src="JavaScript/menu-toggle.js" defer></script>
+</body>
 </html>
-
-
-

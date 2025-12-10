@@ -1,0 +1,155 @@
+
+
+@charset "UTF-8";
+
+@import url('./variables.css');
+@import url('./reset.css');
+@import url('./components.css');
+
+
+main {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* PAGE HERO SECTION */
+.page-hero {
+  display: grid;
+  margin: var(--spacing-2xl) auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.page-hero__image {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-hero__heading {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+.page-hero__heading::after {
+  content: "";
+  display: block;
+  width: 300px;
+  height: 2.5px;
+  background-color: var(--color-border);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* PAGE CONTENT SECTION */
+.page-content {
+  max-width: 1080px;
+  margin: 0 auto var(--spacing-2xl);
+}
+
+.page-content__section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.page-content__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text);
+}
+
+.page-content__text {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+/* PAGE-SPECIFIC LIST */
+.page-list {
+  list-style: none;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.page-list__item {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin: var(--spacing-sm) 0;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.page-list__item::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 3px;
+  background-color: var(--color-border);
+  flex-shrink: 0;
+  margin-top: var(--spacing-xs);
+}
+
+/* PAGE GALLERY */
+.page-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-2xl) 0;
+}
+
+.page-gallery__item {
+  text-align: center;
+}
+
+.page-gallery__image {
+  max-width: 170px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--color-border);
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-gallery__label {
+  font-weight: 600;
+  color: var(--color-primary-light);
+  font-size: var(--font-size-lg);
+}
+
+/* ========================================
+   RESPONSIVE OVERRIDES
+   ======================================== */
+
+@media (max-width: 1200px) {
+  main,
+  .page-hero,
+  .page-content {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+@media (max-width: 820px) {
+  .page-hero {
+    grid-template-columns: auto;
+  }
+
+  .page-hero__image {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero__heading {
+    font-size: var(--font-size-2xl);
+  }
+
+  .page-content__title {
+    font-size: var(--font-size-lg);
+  }
+
+  .page-list__item {
+    font-size: var(--font-size-base);
+  }
+}
